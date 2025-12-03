@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Vibration Meter</string>
+
+    <!-- Screen titles -->
+    <string name="screen_title">Vibration Meter</string>
+
+    <!-- Current Vibration -->
+    <string name="current_vibration">Current Vibration</string>
+    <string name="unit_meters_per_second_squared">m/s²</string>
+
+    <!-- Maximum Vibration -->
+    <string name="max_vibration">Maximum Vibration</string>
+    <string name="no_record_yet">No record yet</string>
+    <string name="reset">Reset</string>
+
+    <!-- Graph -->
+    <string name="vibration_graph">Vibration Graph (Last 30s)</string>
+    <string name="waiting_for_data">Waiting for data…</string>
+
+    <!-- Status messages -->
+    <string name="initializing_sensor">Initializing sensor…</string>
+    <string name="error_title">Error</string>
+    <string name="sensor_unavailable">Accelerometer sensor is not available on this device</string>
+
+    <!-- Tips -->
+    <string name="usage_tip">💡 Tip: Place your device on a washing machine, near earthquake sensors, or any vibrating surface to measure vibration intensity.</string>
+
+    <!-- Content descriptions -->
+    <string name="info_button">Info</string>
+    <string name="reset_button">Reset maximum vibration</string>
+
+    <!-- Session Recording -->
+    <string name="start_recording">Start Recording</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="recording_indicator">Recording</string>
+    <string name="recording_duration">Duration: %s</string>
+    <string name="session_saved">Session saved successfully</string>
+
+    <!-- Navigation -->
+    <string name="nav_live">Live</string>
+    <string name="nav_sessions">Sessions</string>
+
+    <!-- Session List -->
+    <string name="sessions_title">Sessions</string>
+    <string name="sessions_count">%d Sessions</string>
+    <string name="no_sessions">No sessions recorded yet. Start measuring to create your first session!</string>
+    <string name="session_duration">Duration: %s</string>
+    <string name="session_max">Max: %s</string>
+    <string name="session_avg">Avg: %s</string>
+    <string name="session_min">Min: %s</string>
+    <string name="delete_session">Delete</string>
+
+    <!-- Session Detail -->
+    <string name="session_detail_title">Session Details</string>
+    <string name="session_info">Session Information</string>
+    <string name="started_at">Started</string>
+    <string name="ended_at">Ended</string>
+    <string name="total_duration">Total Duration</string>
+    <string name="max_vibration_value">Maximum</string>
+    <string name="avg_vibration_value">Average</string>
+    <string name="min_vibration_value">Minimum</string>
+    <string name="session_graph_title">Session Vibration Graph</string>
+    <string name="share_session">Share</string>
+    <string name="export_csv">Export as CSV</string>
+    <string name="export_json">Export as JSON</string>
+
+    <!-- Delete Confirmation -->
+    <string name="delete_confirmation_title">Delete Session?</string>
+    <string name="delete_confirmation_message">Are you sure you want to delete this session? This action cannot be undone.</string>
+    <string name="delete_confirmation_details">Session from %s</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!-- Error Messages -->
+    <string name="error_loading_sessions">Failed to load sessions</string>
+    <string name="error_loading_session">Failed to load session details</string>
+    <string name="session_not_found">Session not found</string>
+</resources>
