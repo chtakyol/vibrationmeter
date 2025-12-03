@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -22,13 +24,52 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // Read keystore credentials from local.properties or environment variables
+            val keystorePropertiesFile = rootProject.file("local.properties")
+            if (keystorePropertiesFile.exists()) {
+                val keystoreProperties = Properties()
+                keystoreProperties.load(keystorePropertiesFile.inputStream())
+
+                storeFile = file(keystoreProperties.getProperty("keystoreFile") ?: System.getenv("KEYSTORE_FILE"))
+                storePassword = keystoreProperties.getProperty("keystorePassword") ?: System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = keystoreProperties.getProperty("keyAlias") ?: System.getenv("KEY_ALIAS")
+                keyPassword = keystoreProperties.getProperty("keyPassword") ?: System.getenv("KEY_PASSWORD")
+            } else {
+                // Fallback to environment variables only (for CI/CD)
+                storeFile = System.getenv("KEYSTORE_FILE")?.let { file(it) }
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+
+    bundle {
+        language {
+            // Don't split languages in initial release
+            enableSplit = false
+        }
+        density {
+            // Enable density splits for smaller downloads
+            enableSplit = true
+        }
+        abi {
+            // Enable ABI splits
+            enableSplit = true
         }
     }
     compileOptions {
